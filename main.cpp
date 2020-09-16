@@ -2,16 +2,29 @@
 //
 
 #include <iostream>
+#include <thread>
 
 int main()
 {
-    std::cout << "Hello World!\n";
+	std::thread *thread1 = new std::thread([]() {
+		return 0;
+	});
+	std::thread *thread2 = new std::thread([]() {
+		return 0;
+	});
+
+	std::cout << "Hello World!\n";
+
+	thread1->join();
+	thread2->join();
+	getchar();
+	return 0;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
 // Debug program: F5 or Debug > Start Debugging menu
 
-// Tips for Getting Started: 
+// Tips for Getting Started:
 //   1. Use the Solution Explorer window to add/manage files
 //   2. Use the Team Explorer window to connect to source control
 //   3. Use the Output window to see build output and other messages
